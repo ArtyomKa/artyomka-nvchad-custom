@@ -39,7 +39,10 @@ M.mason = {
     "clang-format",
     --python
     "pyright",
-    "autopep8"
+    "black",
+    "mypy",
+    "ruff"
+
   },
 }
 

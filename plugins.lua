@@ -1,6 +1,6 @@
 local overrides = require("custom.configs.overrides")
 
----@type NvPluginSpec[]
+
 local plugins = {
 
   -- Override plugin definition options
@@ -37,15 +37,31 @@ local plugins = {
       require("better_escape").setup()
     end,
   },
-
   {
-    "stevearc/conform.nvim",
-    --  for users those who want auto-save conform + lazyloading!
-    -- event = "BufWritePre"
+    "kylechui/nvim-surround",
+    tag = "v2.1.4",
+    event = "VeryLazy",
     config = function()
-      require "custom.configs.conform"
-    end,
+      require("nvim-surround").setup({})
+    end
   },
+  {
+    "nvimtools/none-ls.nvim",
+
+    event = "User FilePost",
+    config = function()
+      require "custom.configs.nonels"
+    end
+  },
+
+  -- {
+  --   "stevearc/conform.nvim",
+  --   --  for users those who want auto-save conform + lazyloading!
+  --   -- event = "BufWritePre"
+  --   config = function()
+  --     require "custom.configs.conform"
+  --   end,
+  -- },
 
   -- To make a plugin not be loaded
   -- {
