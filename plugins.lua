@@ -1,5 +1,4 @@
-local overrides = require("custom.configs.overrides")
-
+local overrides = require "custom.configs.overrides"
 
 local plugins = {
 
@@ -16,7 +15,7 @@ local plugins = {
   -- override plugin configs
   {
     "williamboman/mason.nvim",
-    opts = overrides.mason
+    opts = overrides.mason,
   },
 
   {
@@ -42,8 +41,8 @@ local plugins = {
     tag = "v2.1.4",
     event = "VeryLazy",
     config = function()
-      require("nvim-surround").setup({})
-    end
+      require("nvim-surround").setup {}
+    end,
   },
   {
     "nvimtools/none-ls.nvim",
@@ -51,9 +50,8 @@ local plugins = {
     event = "User FilePost",
     config = function()
       require "custom.configs.nonels"
-    end
+    end,
   },
-
   -- {
   --   "stevearc/conform.nvim",
   --   --  for users those who want auto-save conform + lazyloading!
