@@ -12,7 +12,8 @@ M.general = {
         vim.lsp.buf.format()
       end,
       "formatting",
-    }
+    },
+    ["<leader>s"] = { ":%s/\\<<C-r><C-w>\\>/", "Replace word"},
 
   },
   v = {
