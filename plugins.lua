@@ -87,11 +87,74 @@ local plugins = {
       { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
     },
   },
-    {
-        "tpope/vim-fugitive",
-        event = "VeryLazy"
-    }
+  {
+    "tpope/vim-fugitive",
+    event = "VeryLazy",
+  },
+  -- debugging
+  {
+    "mfussenegger/nvim-dap",
+    config = function ()
+        require("core.utils").load_mappings("dap")
+    end
+  },
+  {
+    "jay-babu/mason-nvim-dap.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "williamboman/mason.nvim",
+      "mfussenegger/nvim-dap",
+    },
+    opts = {
+      handlers = {},
+    },
+  },
   -- {
+  --   "mfussenegger/nvim-dap-python",
+  --   ft = "python",
+  --   dependencies = {
+  --     "mfussenegger/nvim-dap",
+  --     "rcarriga/nvim-dap-ui",
+  --   },
+  --   config = function()
+  --     local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
+  --     require("dap-python").setup(path)
+  --   end,
+  -- },
+  {
+    "rcarriga/nvim-dap-ui",
+    event = "VeryLazy",
+    dependencies = {
+      "mfussenegger/nvim-dap",
+    },
+    config = function()
+      local dapui = require "dapui"
+      local dap = require "dap"
+      dapui.setup {}
+      print "dapui setup"
+      dap.listeners.before.attach.dapui_config = function()
+        dapui.open()
+      end
+      dap.listeners.before.launch.dapui_config = function()
+        dapui.open()
+      end
+      dap.listeners.after.event_terminated.dapui_config = function()
+        dapui.close()
+      end
+      dap.listeners.after.event_exited.dapui_config = function()
+        dapui.close()
+      end
+      -- dap.listeners.after.event_initialized["dapui_config"] = function()
+      --   dapui.open({})
+      -- end
+      -- dap.listeners.before.event_terminated["dapui_config"] = function()
+      --   dapui.close()
+      -- end
+      -- dap.listeners.before.event_exited["dapui_config"] = function()
+      --   dapui.close()
+      -- end
+    end,
+  },
   --   "stevearc/conform.nvim",
   --   --  for users those who want auto-save conform + lazyloading!
   --   -- event = "BufWritePre"

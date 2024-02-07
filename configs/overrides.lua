@@ -45,7 +45,10 @@ M.mason = {
     --docker
     "dockerfile-language-server",
     "docker-compose-language-service",
-    "hadolint"
+    "hadolint",
+    --debugging
+    "debugpy",
+    "codelldb"
 
 
   },
