@@ -22,5 +22,19 @@ M.general = {
 }
 
 -- more keybinds!
+M.dap = {
+    n = {
+        ["<F9>"] = {"<cmd> DapToggleBreakpoint <CR>"},
+        ["<C-F5>"] = {
+            function() 
+                require('dap').continue()
+            end
+        },
+        ["<F10>"] = {"<cmd> DapStepOver <CR>"},
+        ["<F11>"] = {"<cmd> DapStepInto <CR>"},
+        ["<S-F11>"] = {"<cmd> DapStepOut <CR>"},
+        ["<F5>"] = {"<cmd> DapContinue <CR>"},
 
+    }
+}
 return M
