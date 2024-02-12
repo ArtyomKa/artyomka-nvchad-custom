@@ -4,5 +4,5 @@
  - Create a regular NvChad installation.
  - Clone this repo into $HOME/.config/nvim/lua/custom directory:
     ```
-    git clone git@github.com:ArtyomKa/artyomka-nvchad-custom.git ~/.config/nvim/lua/custom
+    git clone https://github.com/ArtyomKa/artyomka-nvchad-custom.git ~/.config/nvim/lua/custom
     ```
