@@ -10,6 +10,7 @@ M.treesitter = {
     "typescript",
     "tsx",
     "c",
+    "cmake",
     "markdown",
     "markdown_inline",
     "dockerfile",
@@ -38,6 +39,7 @@ M.mason = {
     -- c/cpp stuff
     "clangd",
     "clang-format",
+    "cmake-language-server",
     --python
     "pyright",
     "black",
